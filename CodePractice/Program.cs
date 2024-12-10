@@ -7,7 +7,8 @@ using System.Runtime.CompilerServices;
 {
     new codeDetail(){ Index=1, Tittle="Pyramid Pattern Problem"},
     new codeDetail(){ Index=2,Tittle="Reverse String Problem"},
-    new codeDetail(){ Index=3,Tittle="Right Angle Pattern Problem"}
+    new codeDetail(){ Index=3,Tittle="Right Angle Pattern Problem"},
+    new codeDetail(){ Index=4,Tittle="Check Prime Number"}
 };
     Console.WriteLine("Please Select Your Solution, You Want!\n");
     foreach(var item in codeList) { 
@@ -24,6 +25,9 @@ switch (userChoice)
     break;
 
     case 3: objPattern.rightAnglePattern();
+    break;
+
+    case 4: objPattern.isPrimeNumber();
     break;
 
     default: Console.WriteLine("Your Choice is not available currently Sorry!");
