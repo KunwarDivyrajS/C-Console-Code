@@ -102,5 +102,29 @@ namespace CodePractice
             //Console.ReadKey();
         }   
 
+        public void interfaceWithClass()
+        {
+            Sample s = new Sample();
+            Console.WriteLine("Sample s = new Sample();");
+            s.printM();
+            iSample i = s;
+            Console.WriteLine("iSample i = s;");
+            i.printM();
+            Console.ReadKey();
+        }
+
+    }
+
+    public interface iSample
+    {
+        void printM(string val = "Interface Executed");
+    }
+    public class Sample : iSample
+    {
+        public void printM(string val="Class Executed")
+        {
+            Console.WriteLine(val);
+        }
+
     }
 }
