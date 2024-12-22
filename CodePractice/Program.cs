@@ -9,7 +9,8 @@ using System.Runtime.CompilerServices;
     new codeDetail(){ Index=2,Tittle="Reverse String Problem"},
     new codeDetail(){ Index=3,Tittle="Right Angle Pattern Problem"},
     new codeDetail(){ Index=4,Tittle="Check Prime Number"},
-    new codeDetail(){ Index=5,Tittle="Interface obj with Class Executed"}
+    new codeDetail(){ Index=5,Tittle="Interface obj with Class Executed"},
+    new codeDetail(){ Index=6,Tittle="Addition of Array with Text File"}
 };
     Console.WriteLine("Please Select Your Solution, You Want!\n");
     foreach(var item in codeList) { 
@@ -32,6 +33,9 @@ switch (userChoice)
     break;
 
     case 5: objPattern.interfaceWithClass();
+    break;
+
+    case 6: objPattern.additionOfArray();
     break;
 
     default: Console.WriteLine("Your Choice is not available currently Sorry!");

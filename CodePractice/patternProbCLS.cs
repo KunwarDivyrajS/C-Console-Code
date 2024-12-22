@@ -6,6 +6,18 @@ using System.Threading.Tasks;
 
 namespace CodePractice
 {
+    public interface iSample
+    {
+        void printM(string val = "Interface Executed");
+    }
+    public class Sample : iSample
+    {
+        public void printM(string val = "Class Executed")
+        {
+            Console.WriteLine(val);
+        }
+    }
+
     internal class patternProbCLS
     {
         public void pyramidPattern()
@@ -113,17 +125,63 @@ namespace CodePractice
             Console.ReadKey();
         }
 
-    }
-
-    public interface iSample
-    {
-        void printM(string val = "Interface Executed");
-    }
-    public class Sample : iSample
-    {
-        public void printM(string val="Class Executed")
+        public void additionOfArray()
         {
-            Console.WriteLine(val);
+            //\CodePractice.csproj
+            string OutputPath = @"..\..\..CodePractice\\DocGenerated\\FilePath\\GeneratedFile.txt";
+
+            string directory = Path.GetDirectoryName(OutputPath);
+            if (!Directory.Exists(directory))
+            {
+                Directory.CreateDirectory(directory);  // Create the directory if it doesn't exist
+            }
+
+            TextWriter textWriter = new StreamWriter(OutputPath, true);
+            try
+            {
+                Console.WriteLine("Enter Array Count");
+                int arCount = Convert.ToInt32(Console.ReadLine().Trim());
+
+                //List<int> ar = Console.ReadLine().TrimEnd().Split(' ').ToList().Select(arTemp => Convert.ToInt32(arTemp)).ToList();
+                Console.WriteLine("Please Enter Number :");
+                List<int> ar = new List<int>();
+                for (int i = 0; i < arCount; i++)
+                {
+                    Console.WriteLine($"Enter {i+1} Number");
+                    ar.Add(int.Parse(Console.ReadLine()));
+                }
+                int result = ArraySum(ar);
+
+                textWriter.WriteLine("Result \n{0} : Sum = {1}\n", DateTime.Now, result);
+
+                textWriter.Flush();
+                textWriter.Close();
+            }
+            catch (Exception ex)
+            {
+
+                textWriter.WriteLine("Exception \n{0} : Exception = {1}\n", DateTime.Now, ex);
+
+                textWriter.Flush();
+                textWriter.Close();
+                Console.WriteLine(ex);
+                throw;
+            }
+        }
+
+        public static int ArraySum(List<int> ar)
+        {
+            int sum = 0;
+            //foreach (var item in ar)
+            //{
+            //    sum += item;
+            //}
+            for (int i = 0; i < ar.Count; i++)
+            {
+                sum += ar[i];
+            }
+            Console.WriteLine($"Result {sum}");
+            return sum;
         }
 
     }
