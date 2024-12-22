@@ -128,7 +128,7 @@ namespace CodePractice
         public void additionOfArray()
         {
             //\CodePractice.csproj
-            string OutputPath = @"..\..\..CodePractice\\DocGenerated\\FilePath\\GeneratedFile.txt";
+            string OutputPath = @"..\..\..\\DocGenerated\\FilePath\\GeneratedFile.txt";
 
             string directory = Path.GetDirectoryName(OutputPath);
             if (!Directory.Exists(directory))
