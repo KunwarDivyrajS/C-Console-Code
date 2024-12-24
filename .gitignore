@@ -41,6 +41,11 @@ bld/
 # Visual Studio 2017 auto generated files
 Generated\ Files/
 
+# Ignore these files
+bin/
+DocGenerated/
+obj/
+
 # MSTest test Results
 [Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*
@@ -361,3 +366,15 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/CodePractice/.gitignore
+/CodePractice/bin/Debug/net7.0/CodePractice.dll
+/CodePractice/bin/Debug/net7.0/CodePractice.pdb
+/CodePractice/obj/Debug/net7.0/ref/CodePractice.dll
+/CodePractice/obj/Debug/net7.0/refint/CodePractice.dll
+/CodePractice/obj/Debug/net7.0/CodePractice.dll
+/CodePractice/obj/Debug/net7.0/CodePractice.pdb
+/CodePractice/.vs/ProjectEvaluation/codepractice.metadata.v5.2
+/CodePractice/.vs/ProjectEvaluation/codepractice.projects.v5.2
+/CodePractice/.vs/CodePractice/v17/.futdcache.v2
+/CodePractice/.vs/CodePractice/v17/.suo
+/CodePractice/.vs/CodePractice/DesignTimeBuild/.dtbcache.v2
