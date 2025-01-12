@@ -18,7 +18,8 @@ using System.Runtime.CompilerServices;
         new codeDetail(){ Index=11, Tittle="Using Binary Search Find Key" },
         new codeDetail(){ Index=12, Tittle="Left Align Star Pattern" },
         new codeDetail(){ Index=13, Tittle="Center Align Star Pattern" },
-        new codeDetail(){ Index=14, Tittle="Reverse an Array" }
+        new codeDetail(){ Index=14, Tittle="Reverse an Array" },
+        new codeDetail(){ Index=15, Tittle="Schedule Presentations" }
     };
     try
     {
@@ -89,6 +90,10 @@ using System.Runtime.CompilerServices;
 
             case 14:
                 objPattern.reverseArray();
+                break;
+
+            case 15:
+                objPattern.scheduler_Setup();
                 break;
 
             default:

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization.Metadata;
 using System.Threading.Tasks;
 
 namespace CodePractice
@@ -399,6 +400,37 @@ namespace CodePractice
                 Console.WriteLine("It is not possible to reach the last index.");
             }
         }
+
+        public void scheduler_Setup()
+        {
+            Console.WriteLine("Please, Enter How Many Presentation are there.");
+            int n = Convert.ToInt32(Console.ReadLine().Trim());
+            List<int> scheduleStart = new List<int>(); 
+            List<int> scheduleEnd = new List<int>();
+            int start = 0;  int End = 0;
+            for(int i=0; i < n; i++)
+            {
+                Console.Write($"Enter Start Time of Presentation {i+1} = ");
+                var startTime = Convert.ToInt32(Console.ReadLine().Trim());
+                Console.Write($"Enter End Time of Presentation  {i+1} = ");
+                var EndTime = Convert.ToInt32(Console.ReadLine().Trim());
+                if(startTime > EndTime)
+                {
+                    start = EndTime;
+                    End = startTime;
+                }
+                else
+                {
+                    start = startTime;
+                    End = EndTime;
+                }
+                scheduleStart.Add(start);
+                scheduleEnd.Add(End);
+            }
+            int result = FunctionResult.number_Of_Presentation(scheduleStart, scheduleEnd);
+            Console.WriteLine($"{result} No of Presentation, we can attend.");
+
+        }
     }
 
     public class TextEditorCls
@@ -511,6 +543,33 @@ namespace CodePractice
             // it means we can reach the
             // last index
             return true;
+        }
+    }
+
+    public class FunctionResult
+    {
+        public static int number_Of_Presentation(List<int> scheduleStart, List<int> scheduleEnd)
+        {
+            List<(int start, int End)> presentations = new List<(int start, int End)>();
+            for(int i=0; i<scheduleStart.Count; i++)
+            {
+                presentations.Add((scheduleStart[i], scheduleEnd[i]));
+            }
+            presentations.Sort((a,b)=> a.End!=b.End ? a.End.CompareTo(b.End) : a.start.CompareTo(b.start));
+            int maxCount = 0;
+            int lastEndTime = 0;
+
+            foreach (var presentation in presentations)
+            {
+                if (presentation.start >= lastEndTime)
+                {
+                    maxCount++;
+                    Console.WriteLine($"Presentation {maxCount} : presentation Start at {presentation.start} and End Time will be {presentation.End}");
+                    lastEndTime = presentation.End;
+                }
+            }
+
+            return maxCount;
         }
     }
 }
