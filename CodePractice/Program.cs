@@ -19,7 +19,8 @@ using System.Runtime.CompilerServices;
         new codeDetail(){ Index=12, Tittle="Left Align Star Pattern" },
         new codeDetail(){ Index=13, Tittle="Center Align Star Pattern" },
         new codeDetail(){ Index=14, Tittle="Reverse an Array" },
-        new codeDetail(){ Index=15, Tittle="Schedule Presentations" }
+        new codeDetail(){ Index=15, Tittle="Schedule Presentations" },
+        new codeDetail(){ Index=16, Tittle="Parenthesis Order Check"}
     };
     try
     {
@@ -94,6 +95,10 @@ using System.Runtime.CompilerServices;
 
             case 15:
                 objPattern.scheduler_Setup();
+                break;
+
+            case 16:
+                objPattern.checkParentheseOrder();
                 break;
 
             default:

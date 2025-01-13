@@ -431,6 +431,15 @@ namespace CodePractice
             Console.WriteLine($"{result} No of Presentation, we can attend.");
 
         }
+
+        public void checkParentheseOrder()
+        {
+            Console.WriteLine("Enter Your Symbols From an Order [{<()>}]");
+            string inputPattern = Console.ReadLine();
+            var objParentheses = new Parentheses();
+            int resultP = objParentheses.checkParenthesesOrder(inputPattern);
+            Console.WriteLine("result will be "+resultP);
+        }
     }
 
     public class TextEditorCls
@@ -570,6 +579,43 @@ namespace CodePractice
             }
 
             return maxCount;
+        }
+    }
+
+    public class Parentheses
+    {
+        public int checkParenthesesOrder(string patternInput)
+        {
+            Stack<char> stack_symbols = new Stack<char>();
+            Dictionary<char, char> matchParentheses = new Dictionary<char, char>()
+            {
+                { '}','{' },
+                { ']','[' },
+                { ')','(' },
+                { '>','<' }
+            };
+            foreach(char c in patternInput)
+            {
+                if(matchParentheses.ContainsValue(c))
+                {
+                    Console.WriteLine($"Push Open {c} in stack ");
+                    stack_symbols.Push(c);
+                }
+                else if (matchParentheses.ContainsKey(c))
+                {
+                    if(stack_symbols.Count>0 && stack_symbols.Peek() == matchParentheses[c])
+                    {
+                        stack_symbols.Pop();
+                        Console.WriteLine($"pop Close {c} from stack");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"stack count return mismatched on {c}");
+                        return 0;
+                    }
+                }
+            }
+            return stack_symbols.Count==0 ? 1 : 0;
         }
     }
 }
