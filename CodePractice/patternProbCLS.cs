@@ -440,6 +440,40 @@ namespace CodePractice
             int resultP = objParentheses.checkParenthesesOrder(inputPattern);
             Console.WriteLine("result will be "+resultP);
         }
+
+        public void FindPythagoreanTriplets()
+        {
+            int[] arry = getArray();
+            HashSet<int> sqArray = new HashSet<int>();
+            foreach (var num in arry)
+            {
+                sqArray.Add(num * num);
+            }
+            int n=arry.Length;
+            bool isFound = false;
+            for (int i=0; i<n; i++)
+            {
+                for(int j=i+1; j<n; j++) 
+                {
+                    int a = arry[i]; int b = arry[j];
+                    int sumOfSq = a*a + b*b;
+                    if(sqArray.Contains(sumOfSq))
+                    {
+                        int c = (int)Math.Sqrt(sumOfSq);
+                        if(Array.Exists(arry,x=>x==c))
+                        {
+                            isFound= true;
+                            Console.WriteLine($"As per Pythagorean Theoram a,b & c is {a}, {b} & {c}");
+                        }
+                    }
+                }
+            }
+            if(!isFound)
+            {
+                Console.WriteLine("As per Pythagorean Theoram a,b & c is not found");
+            }
+        
+        }
     }
 
     public class TextEditorCls
